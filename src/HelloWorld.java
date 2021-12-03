@@ -2,32 +2,23 @@
 public class HelloWorld {
     public static void main(String... args){
 
-        Planete mercure = new Planete();
-        mercure.nom = "Mercure";
+        Planete mercure = new Planete("Mercure");
         mercure.diametre = 4880;
         mercure.matiere = "Tellurique";
-        Planete venus = new Planete();
-        venus.nom = "Venus";
+        Planete venus = new Planete("Venus");
         venus.diametre = 12100;
-        venus.matiere = "Tellurique";
-        Planete terre = new Planete();
-        terre.nom = "Terre";
+        Planete terre = new Planete("Terre");
         terre.diametre = 12756;
-        terre.matiere = "Tellurique";
-        Planete mars = new Planete();
-        mars.nom = "Mars";
+        Planete mars = new Planete("Mars");
         mars.diametre = 6792;
         mars.matiere = "Tellurique";
-        Planete jupiter = new Planete();
-        jupiter.nom = "Jupiter";
+        Planete jupiter = new Planete("Jupiter");
         jupiter.diametre = 142984;
         jupiter.matiere = "Gazeuse";
-        Planete saturne = new Planete();
-        saturne.nom = "Saturne";
+        Planete saturne = new Planete("Saturne");
         saturne.diametre = 120536;
         saturne.matiere = "Gazeuse";
-        Planete uranus = new Planete();
-        uranus.nom = "Uranus";
+        Planete uranus = new Planete("Uranus");
         uranus.diametre = 51118;
         uranus.matiere = "Gazeuse";
 
@@ -38,18 +29,24 @@ public class HelloWorld {
 
         uranus.atmosphere = atmosphereUranus;
 
-        Planete neptune = new Planete();
-        neptune.nom = "Neptune";
+        Planete neptune = new Planete("Neptune");
         neptune.diametre = 49532;
         neptune.matiere = "Gazeuse";
 
         System.out.println(jupiter.nom+" est une planète "+jupiter.matiere+" avec un diamètre de "+jupiter.diametre+" kilomètres.");
-        Planete sedna = new Planete();
-        System.out.println(sedna.nom+ " est une planète "+sedna.matiere+" avec un diamètre de "+sedna.diametre+" kilomètres.");
+
         neptune.rotation(-3542);
         mars.revolution(-684);
-        mars.accueillirVaisseau(8);
-        mars.accueillirVaisseau("FREGATE");
+
+        Vaiseau nouveauVaiseau = new Vaiseau();
+        nouveauVaiseau.type = "FREGATE";
+        nouveauVaiseau.nbPassagers = 9;
+        mars.accueillirVaisseau(nouveauVaiseau);
+
+        Vaiseau autreVaiseau = new Vaiseau();
+        autreVaiseau.type = "CROISEUR";
+        autreVaiseau.nbPassagers = 42;
+        mars.accueillirVaisseau(autreVaiseau);
         System.out.println("Le nombre d'humain ayant déjà séjourné sur Mars est actuellement de " +
                 mars.totalVisiteur);
 
@@ -61,5 +58,10 @@ public class HelloWorld {
         System.out.println("A " + uranus.atmosphere.tauxHelium + "% d'héluim");
         System.out.println("A " + uranus.atmosphere.tauxMethane+ "% de méthane");
         System.out.println("A " + uranus.atmosphere.tauxSoduim + "% de Soduim");
+
+        System.out.println(Planete.expansion(10.5));
+        System.out.println(Planete.expansion(14.2));
+
+        System.out.println("Le nombre de planetes découvertes est actuellement de " + Planete.nbPlaneteDecouvertes);
     }
 }
