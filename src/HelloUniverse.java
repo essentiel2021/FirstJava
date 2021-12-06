@@ -2,18 +2,19 @@ public class HelloUniverse {
 
     public static void main(String... args){
 
-       Voiture voitureDeJathniel = new Voiture();
-       voitureDeJathniel.nbPortes = 4;
-       voitureDeJathniel.automatique = true;
-       voitureDeJathniel.couleur = "noir";
+       VehiculeAMoteur voitureDeJathniel = new Voiture();
+       Voiture voitureDeJathnielSousFormeVoiture = (Voiture) voitureDeJathniel;
+       ((Voiture)voitureDeJathniel).nbPortes = 4;
+       ((Voiture)voitureDeJathniel).automatique = true;
+       ((Voiture)voitureDeJathniel).couleur = "noir";
        Moteur moteur = new Moteur();
        moteur.carburation = "Diesel";
        moteur.nbCylindres = 6;
        voitureDeJathniel.moteur = moteur;
-       int nouveaurapport = voitureDeJathniel.passerRapport(true);
+       int nouveaurapport = ((Voiture)voitureDeJathniel).passerRapport(true);
        System.out.println(voitureDeJathniel.moteur.carburation);
        System.out.println("le nouveau rapport est : " + nouveaurapport);
-       voitureDeJathniel.tourner("droite",120);
+       ((Voiture)voitureDeJathniel).tourner("droite",120);
        Passager passager = new Passager();
        passager.nom = "Achi";
        passager.prenom = "Grace";

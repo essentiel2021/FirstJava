@@ -7,14 +7,20 @@ public class Voiture extends VehiculeAMoteur {
 
 
     Voiture(){
+        super(new Moteur());
         System.out.println("Une voiture est construite sans parametre");
     }
     Voiture(String couleur){
+        this();
         this.couleur = couleur;
         System.out.println("Une voiture est contruite avec le parametre couleur");
     }
+    Voiture(Moteur moteur){
+        super(moteur);
+    }
 
     Voiture(String carburation, int nbCylindre){
+        super(new Moteur());
         Moteur moteur = new Moteur();
         moteur.carburation = carburation;
         moteur.nbCylindres = nbCylindre;

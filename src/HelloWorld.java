@@ -63,5 +63,22 @@ public class HelloWorld {
         System.out.println(Planete.expansion(14.2));
 
         System.out.println("Le nombre de planetes découvertes est actuellement de " + Planete.nbPlaneteDecouvertes);
+        VaiseauDeGuerre chasseur = new VaiseauDeGuerre();
+        chasseur.type = "CHASSEUR";
+        chasseur.blindage = 152;
+        chasseur.resisdanceDuBouclier = 2;
+
+        VaiseauCivil vaiseauMonde = new VaiseauCivil();
+        vaiseauMonde.blindage = 4784;
+        vaiseauMonde.resisdanceDuBouclier = 30;
+        vaiseauMonde.type = "VAISSEAU-MONDE";
+        vaiseauMonde.activerBouclier();
+        chasseur.activerBouclier();
+        chasseur.attaque(vaiseauMonde,"lasers photonique",3);
+        vaiseauMonde.desactiverBouclier();
+        System.out.println("La réisdance du bouclier du VM est "+ vaiseauMonde.resisdanceDuBouclier);
+        System.out.println("le blindage du VM " + vaiseauMonde.blindage);
+
+
     }
 }

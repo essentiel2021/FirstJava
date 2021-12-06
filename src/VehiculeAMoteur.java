@@ -3,6 +3,11 @@ public class VehiculeAMoteur {
     int vitesse;
     Moteur moteur;
 
+    VehiculeAMoteur(Moteur moteur){
+        this.moteur = moteur;
+        System.out.println("Un vehicule à moteur est en cours de traitement");
+    }
+
     int accelerer(int vitesse){
         System.out.println("J'accelère");
         return this.vitesse + vitesse;
